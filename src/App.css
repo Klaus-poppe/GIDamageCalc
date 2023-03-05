@@ -1,6 +1,6 @@
 :root {
-  --theme-color: #e8d9e8;
-  --accent-color: #8472b2;
+  --theme-color: #f3dff3;
+  --accent-color: #eec7da;
   --alert-color: #612541;
 }
 
@@ -29,6 +29,7 @@ body {
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5em;
   height: 100vh;
+  box-shadow: inset -1em -2em 7em 3em var(--accent-color);
 }
 
 .char-info {
@@ -57,7 +58,7 @@ body {
   align-items: flex-start;
 }
 
-.enemy-preview-container {
+.enemy-image-container {
   height: 280px;
   width: auto;
   display: flex;
@@ -188,6 +189,44 @@ body {
 }
 
 .char-aura {
-  height: auto;
-  width: 40px;
+  height: 40px;
+  width: auto;
+}
+
+.current-aura {
+  padding: 3px;
+}
+
+.selected-aura {
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2),
+    inset 0 0 20px rgba(220, 220, 220, 0.3);
+}
+
+.aura-selecter {
+  background-color: white;
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.4);
+  border-radius: 20px;
+  display: flex;
+  gap: 0.5em;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+  display: none;
+}
+
+.enemy-preview-container:hover .current-aura {
+  display: none;
+}
+
+.enemy-preview-container:hover .aura-selecter {
+  display: flex;
+}
+
+.char-preview-container:hover .current-aura {
+  display: none;
+}
+
+.char-preview-container:hover .aura-selecter {
+  display: flex;
 }

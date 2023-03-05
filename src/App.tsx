@@ -2,7 +2,14 @@ import { ChangeEvent, ReactNode, useEffect, useState } from "react";
 import YaeMiko from "./assets/characters/yaeMiko_full.png";
 import hilichurl from "./assets/enemies/Enemy_Hilichurl.webp";
 import "./App.css";
-import anemoAuro from "./assets/misc/Element_Anemo.svg";
+import anemoAura from "./assets/misc/Element_Anemo.svg";
+import geoAura from "./assets/misc/Element_Geo.svg";
+import dendroAura from "./assets/misc/Element_Dendro.svg";
+import cryoAura from "./assets/misc/Element_Cryo.svg";
+import electroAura from "./assets/misc/Element_Electro.svg";
+import pyroAura from "./assets/misc/Element_Pyro.svg";
+import hydroAura from "./assets/misc/Element_Hydro.svg";
+import { IoClose } from "react-icons/io5";
 
 function App() {
   const [character, setCharacter] = useState(defaultCharacterValues);
@@ -24,6 +31,24 @@ function App() {
       }));
   };
 
+  const setEnemyAura = (aura: string) => {
+    return () => {
+      setEnemy((prev) => ({
+        ...prev,
+        aura,
+      }));
+    };
+  };
+
+  const setCharAura = (aura: string) => {
+    return () => {
+      setCharacter((prev) => ({
+        ...prev,
+        aura,
+      }));
+    };
+  };
+
   const results = calcDamage(character, enemy);
 
   return (
@@ -31,9 +56,75 @@ function App() {
       <div className="main">
         <div className="char-info">
           <div className="char-preview-container">
-            <div className="char-name">Yae Miko</div>
+            {/* <div className="char-name">Yae Miko</div> */}
             <div className="char-aura-container">
-              <img className="char-aura" src={anemoAuro}></img>
+              <div className="aura-selecter">
+                <img
+                  className={`char-aura ${
+                    character.aura === anemoAura && "selected-aura"
+                  }`}
+                  onClick={setCharAura(anemoAura)}
+                  src={anemoAura}
+                ></img>
+                <img
+                  className={`char-aura ${
+                    character.aura === geoAura && "selected-aura"
+                  }`}
+                  onClick={setCharAura(geoAura)}
+                  src={geoAura}
+                ></img>
+                <img
+                  className={`char-aura ${
+                    character.aura === dendroAura && "selected-aura"
+                  }`}
+                  onClick={setCharAura(dendroAura)}
+                  src={dendroAura}
+                ></img>
+                <img
+                  className={`char-aura ${
+                    character.aura === cryoAura && "selected-aura"
+                  }`}
+                  onClick={setCharAura(cryoAura)}
+                  src={cryoAura}
+                ></img>
+                <img
+                  className={`char-aura ${
+                    character.aura === pyroAura && "selected-aura"
+                  }`}
+                  onClick={setCharAura(pyroAura)}
+                  src={pyroAura}
+                ></img>
+                <img
+                  className={`char-aura ${
+                    character.aura === electroAura && "selected-aura"
+                  }`}
+                  onClick={setCharAura(electroAura)}
+                  src={electroAura}
+                ></img>
+                <img
+                  className={`char-aura ${
+                    character.aura === hydroAura && "selected-aura"
+                  }`}
+                  onClick={setCharAura(hydroAura)}
+                  src={hydroAura}
+                ></img>
+                <IoClose
+                  onClick={setCharAura("none")}
+                  size={22}
+                  style={{ color: "rgba(0 ,0, 0, 0.4)" }}
+                />
+              </div>
+              {character.aura === "none" ? (
+                <div
+                  className="char-aura current-aura"
+                  style={{ padding: "4px" }}
+                ></div>
+              ) : (
+                <img
+                  className="char-aura current-aura"
+                  src={character.aura}
+                ></img>
+              )}
             </div>
             <div className="char-image-container">
               <img className="char-preview" src={YaeMiko}></img>
@@ -285,11 +376,74 @@ function App() {
             </div>
           </div>
 
-          <div>
+          <div className="enemy-preview-container">
             <div className="char-aura-container">
-              <img className="char-aura" src={anemoAuro}></img>
+              <div className="aura-selecter">
+                <img
+                  className={`char-aura ${
+                    enemy.aura === anemoAura && "selected-aura"
+                  }`}
+                  onClick={setEnemyAura(anemoAura)}
+                  src={anemoAura}
+                ></img>
+                <img
+                  className={`char-aura ${
+                    enemy.aura === geoAura && "selected-aura"
+                  }`}
+                  onClick={setEnemyAura(geoAura)}
+                  src={geoAura}
+                ></img>
+                <img
+                  className={`char-aura ${
+                    enemy.aura === dendroAura && "selected-aura"
+                  }`}
+                  onClick={setEnemyAura(dendroAura)}
+                  src={dendroAura}
+                ></img>
+                <img
+                  className={`char-aura ${
+                    enemy.aura === cryoAura && "selected-aura"
+                  }`}
+                  onClick={setEnemyAura(cryoAura)}
+                  src={cryoAura}
+                ></img>
+                <img
+                  className={`char-aura ${
+                    enemy.aura === pyroAura && "selected-aura"
+                  }`}
+                  onClick={setEnemyAura(pyroAura)}
+                  src={pyroAura}
+                ></img>
+                <img
+                  className={`char-aura ${
+                    enemy.aura === electroAura && "selected-aura"
+                  }`}
+                  onClick={setEnemyAura(electroAura)}
+                  src={electroAura}
+                ></img>
+                <img
+                  className={`char-aura ${
+                    enemy.aura === hydroAura && "selected-aura"
+                  }`}
+                  onClick={setEnemyAura(hydroAura)}
+                  src={hydroAura}
+                ></img>
+                <IoClose
+                  onClick={setEnemyAura("none")}
+                  size={22}
+                  style={{ color: "rgba(0 ,0, 0, 0.4)" }}
+                />
+              </div>
+              {enemy.aura === "none" ? (
+                <div
+                  className="char-aura current-aura"
+                  style={{ padding: "4px" }}
+                ></div>
+              ) : (
+                <img className="char-aura current-aura" src={enemy.aura}></img>
+              )}
             </div>
-            <div className="enemy-preview-container">
+            <div className="enemy-image-container">
               <img className="enemy-preview" src={hilichurl} />
             </div>
           </div>
@@ -314,7 +468,7 @@ type character = {
   atkPercent: number;
   flatAtkBonus: number;
   flatEmBonus: number;
-  Aura: string;
+  aura: string;
   FlatDmgBonus: number;
 };
 
@@ -324,6 +478,7 @@ type enemy = {
   defReduction: number;
   defIgnore: number;
   resShred: number;
+  aura: string;
 };
 
 const defaultCharacterValues: character = {
@@ -338,7 +493,7 @@ const defaultCharacterValues: character = {
   atkPercent: 0,
   flatAtkBonus: 0,
   flatEmBonus: 0,
-  Aura: "none",
+  aura: anemoAura,
   FlatDmgBonus: 0,
 };
 
@@ -348,6 +503,7 @@ const defaultEnemyValues: enemy = {
   defReduction: 0,
   defIgnore: 0,
   resShred: 0,
+  aura: pyroAura,
 };
 
 const calcResMultiplier = (
