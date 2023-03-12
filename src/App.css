@@ -5,13 +5,6 @@
 }
 
 body {
-  /* background-image: linear-gradient(
-    to bottom right,
-    rgb(168, 137, 168),
-    rgb(175, 143, 175),
-    rgb(204, 200, 200),
-    white
-  ); */
   background-color: white;
   /* background-color: #222831; */
   /* background-color: #e8d9e8; */
@@ -28,8 +21,14 @@ body {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5em;
-  height: 100vh;
-  box-shadow: inset -1em -2em 7em 3em var(--accent-color);
+  background: #fafafa;
+}
+
+.grid-container {
+  display: grid;
+  gap: 2em;
+  padding: 3em;
+  grid-template-rows: auto 1fr;
 }
 
 .char-info {
@@ -191,6 +190,7 @@ body {
 .char-aura {
   height: 40px;
   width: auto;
+  cursor: pointer;
 }
 
 .current-aura {
@@ -199,13 +199,19 @@ body {
 
 .selected-aura {
   border-radius: 50%;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2),
-    inset 0 0 20px rgba(220, 220, 220, 0.3);
+  background: rgb(255, 255, 255);
+  /* background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(154, 154, 154, 0.4) 100%
+  ); */
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+  /* inset 0 0 20px rgba(220, 220, 220, 0.3); */
 }
 
 .aura-selecter {
   background-color: white;
-  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5);
   border-radius: 20px;
   display: flex;
   gap: 0.5em;
