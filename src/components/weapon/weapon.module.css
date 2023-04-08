@@ -1,0 +1,64 @@
+.weapon-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column: span 2;
+  gap: 2em;
+}
+
+.weapon-image-container {
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.weapon-image {
+  width: 100%;
+  height: auto;
+}
+
+.weapon-stats-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  border: 2px solid black;
+  height: fit-content;
+  padding: 1em;
+  border-radius: 10px;
+  /* box-shadow: inset 0px 0px 4em 1em var(--theme-color),
+      0 0 0.2em 0.2em rgba(0, 0, 0, 0.6); */
+  background-color: white;
+}
+
+.weapon-stat-container {
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+}
+
+.weapon-main-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(200px, 1fr) 1fr;
+  gap: 1em;
+}
+
+.weapon-passive-container {
+  grid-row: span 2;
+}
+
+.refinement-container {
+  display: flex;
+  gap: 1em;
+  justify-content: space-between;
+  margin: 1em 0;
+}
+
+.refinement {
+  background-color: white;
+  box-shadow: 0 0 5px;
+  padding: 0.5em;
+  border-radius: 5px;
+}

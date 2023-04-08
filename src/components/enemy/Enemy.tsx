@@ -9,6 +9,7 @@ import hilichurl from "../../assets/enemies/Enemy_Hilichurl.webp";
 import { ChangeEvent } from "react";
 import { enemy } from "../../models/enemy";
 import { IoClose } from "react-icons/io5";
+import AuraSelector from "../auraSelector/AuraSelector";
 
 export const Enemy = ({
   updateEnemyStats,
@@ -18,7 +19,7 @@ export const Enemy = ({
   return (
     <>
       <div className="char-stats-container">
-        <div className="char-stat-container">
+        {/* <div className="char-stat-container">
           <label className="char-stat-input-label" htmlFor="enemyLevel">
             Level
           </label>
@@ -31,7 +32,7 @@ export const Enemy = ({
             value={enemy.level}
             onChange={updateEnemyStats("level")}
           />
-        </div>
+        </div> */}
         <div className="char-stat-container">
           <label className="char-stat-input-label" htmlFor="resistance">
             Resistance
@@ -88,76 +89,22 @@ export const Enemy = ({
       </div>
 
       <div className="enemy-preview-container">
-        <div className="char-aura-container">
-          <div className="aura-selecter">
-            <img
-              className={`char-aura ${
-                enemy.aura === anemoAura && "selected-aura"
-              }`}
-              onClick={setEnemyAura(anemoAura)}
-              src={anemoAura}
-            ></img>
-            <img
-              className={`char-aura ${
-                enemy.aura === geoAura && "selected-aura"
-              }`}
-              onClick={setEnemyAura(geoAura)}
-              src={geoAura}
-            ></img>
-            <img
-              className={`char-aura ${
-                enemy.aura === dendroAura && "selected-aura"
-              }`}
-              onClick={setEnemyAura(dendroAura)}
-              src={dendroAura}
-            ></img>
-            <img
-              className={`char-aura ${
-                enemy.aura === cryoAura && "selected-aura"
-              }`}
-              onClick={setEnemyAura(cryoAura)}
-              src={cryoAura}
-            ></img>
-            <img
-              className={`char-aura ${
-                enemy.aura === pyroAura && "selected-aura"
-              }`}
-              onClick={setEnemyAura(pyroAura)}
-              src={pyroAura}
-            ></img>
-            <img
-              className={`char-aura ${
-                enemy.aura === electroAura && "selected-aura"
-              }`}
-              onClick={setEnemyAura(electroAura)}
-              src={electroAura}
-            ></img>
-            <img
-              className={`char-aura ${
-                enemy.aura === hydroAura && "selected-aura"
-              }`}
-              onClick={setEnemyAura(hydroAura)}
-              src={hydroAura}
-            ></img>
-            <IoClose
-              onClick={setEnemyAura("none")}
-              size={22}
-              style={{
-                color: "rgba(0 ,0, 0, 0.4)",
-                cursor: "pointer",
-              }}
-            />
+        <div className="char-state-container">
+          <div className="char-level-container">
+            <div className="char-level">{`Lvl.${enemy.level}`}</div>
+            <div className="char-level-input">
+              <input
+                className="char-stat-input"
+                id="enemyLevel"
+                type="number"
+                min="0"
+                max="100"
+                value={enemy.level}
+                onChange={updateEnemyStats("level")}
+              />
+            </div>
           </div>
-          {enemy.aura === "none" ? (
-            <div
-              className="char-aura current-aura"
-              style={{
-                padding: "4px",
-              }}
-            ></div>
-          ) : (
-            <img className="char-aura current-aura" src={enemy.aura}></img>
-          )}
+          <AuraSelector aura={enemy.aura} setAura={setEnemyAura} />
         </div>
         <div className="enemy-image-container">
           <img className="enemy-preview" src={hilichurl} />

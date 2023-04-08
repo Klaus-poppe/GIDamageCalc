@@ -1,0 +1,22 @@
+.constellation-container {
+  grid-column: span 2;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1em;
+}
+
+.constellation {
+  border-radius: 50%;
+  border: 3px solid gray;
+  padding: 0.8em;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: gray;
+}
+
+.constellation-selected {
+  color: black;
+  border-color: black;
+}

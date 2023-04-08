@@ -1,5 +1,5 @@
 import { ChangeEvent, useState } from "react";
-import { defaultCharacterValues } from "../models/character";
+import { constellation, defaultCharacterValues } from "../models/character";
 
 const useCharacter = () => {
   const [character, setCharacter] = useState(defaultCharacterValues);
@@ -23,7 +23,16 @@ const useCharacter = () => {
     };
   };
 
-  return { character, updateCharacterStats, setCharAura };
+  const setCharCon = (con: constellation): any => {
+    return () => {
+      setCharacter((prev) => ({
+        ...prev,
+        constellation: con,
+      }));
+    };
+  };
+
+  return { character, updateCharacterStats, setCharAura, setCharCon };
 };
 
 export default useCharacter;

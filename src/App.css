@@ -221,18 +221,60 @@ body {
   display: none;
 }
 
-.enemy-preview-container:hover .current-aura {
+.char-state-container {
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+}
+
+.char-level-container {
+  flex-basis: 33.33%;
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+.char-level {
+  display: flex;
+  align-items: center;
+}
+
+.char-level-input {
   display: none;
 }
 
-.enemy-preview-container:hover .aura-selecter {
+.char-aura-container {
+  flex-basis: 33.33%;
   display: flex;
+  justify-content: center;
 }
 
-.char-preview-container:hover .current-aura {
+.char-level-container:hover .char-level {
   display: none;
 }
 
-.char-preview-container:hover .aura-selecter {
+.char-level-container:hover .char-level-input {
+  display: block;
+}
+
+/* .enemy-preview-container:hover .current-aura {
+  display: none;
+} */
+
+/* .enemy-preview-container:hover .aura-selecter {
   display: flex;
+} */
+
+/* .char-aura-container:hover .current-aura {
+  display: none;
+} */
+
+.char-aura-container:hover + .aura-selecter {
+  display: flex;
+  position: absolute;
+}
+
+.aura-selecter:hover {
+  display: flex;
+  position: absolute;
 }

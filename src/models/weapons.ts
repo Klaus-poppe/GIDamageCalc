@@ -1,3 +1,33 @@
+import { buff, stat } from "./character";
+
+export type weapon = {
+  level: number;
+  refinement: 1 | 2 | 3 | 4 | 5;
+  mainStat: number;
+  substat: {
+    stat: stat;
+    value: number;
+  };
+  passive: buff[];
+};
+
+export const defaultWeaponValues: weapon = {
+  level: 0,
+  refinement: 1,
+  mainStat: 100,
+  substat: {
+    stat: "atkPercent",
+    value: 0,
+  },
+  passive: [
+    {
+      status: true,
+      stat: "em",
+      value: 0,
+    },
+  ],
+};
+
 // const weapons = {
 //   widsith: {
 //     lvl: 90,
@@ -14,19 +44,3 @@
 //     },
 //   },
 // };
-
-// type weapon = {
-//   lvl: number;
-//   refinement: number;
-//   mainStat: number;
-//   substat: {
-//     stat: string;
-//     value: number;
-//   };
-//   passive: {
-//     status: string;
-//     stat: string;
-//     value: number;
-//   };
-// };
-export default () => {};

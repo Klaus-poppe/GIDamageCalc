@@ -9,10 +9,15 @@ import { defaultEnemyValues } from "./models/enemy";
 import { calcDamage } from "./utils/calcDamage";
 import useCharacter from "./hooks/useCharacter";
 import useEnemy from "./hooks/useEnemy";
+import Weapon from "./components/weapon/Weapon";
+import useWeapon from "./hooks/useWeapon";
+import Constellations from "./components/constellations/Constellations";
 
 function App() {
-  const { character, updateCharacterStats, setCharAura } = useCharacter();
+  const { character, updateCharacterStats, setCharAura, setCharCon } =
+    useCharacter();
   const { enemy, updateEnemyStats, setEnemyAura } = useEnemy();
+  const { weapon, updateWeaponStats } = useWeapon();
 
   return (
     <div className="app">
@@ -23,10 +28,12 @@ function App() {
             updateCharacterStats={updateCharacterStats}
             character={character}
           />
-          <Buffs
+          {/* <Buffs
             character={character}
             updateCharacterStats={updateCharacterStats}
-          />
+          /> */}
+          <Constellations setCharCon={setCharCon} />
+          <Weapon weapon={weapon} updateWeaponStats={updateWeaponStats} />
         </div>
 
         <div className="enemy-info char-info ">
