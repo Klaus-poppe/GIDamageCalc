@@ -108,7 +108,7 @@ body {
   width: 5em;
   height: 2em;
   text-align: center;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   border-radius: 5px;
   border: 1px solid black;
   background-color: white;
@@ -186,7 +186,7 @@ body {
   font-size: 1.5;
   gap: 1em;
 }
-
+/* 
 .char-aura {
   height: 40px;
   width: auto;
@@ -200,13 +200,8 @@ body {
 .selected-aura {
   border-radius: 50%;
   background: rgb(255, 255, 255);
-  /* background: radial-gradient(
-    circle,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(154, 154, 154, 0.4) 100%
-  ); */
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
-  /* inset 0 0 20px rgba(220, 220, 220, 0.3); */
+
 }
 
 .aura-selecter {
@@ -219,7 +214,7 @@ body {
   align-items: center;
   padding: 4px;
   display: none;
-}
+} */
 
 .char-state-container {
   display: flex;
@@ -243,12 +238,6 @@ body {
   display: none;
 }
 
-.char-aura-container {
-  flex-basis: 33.33%;
-  display: flex;
-  justify-content: center;
-}
-
 .char-level-container:hover .char-level {
   display: none;
 }
@@ -257,17 +246,14 @@ body {
   display: block;
 }
 
-/* .enemy-preview-container:hover .current-aura {
-  display: none;
-} */
+/* 
 
-/* .enemy-preview-container:hover .aura-selecter {
+.char-aura-container {
+  flex-basis: 33.33%;
   display: flex;
-} */
+  justify-content: center;
+}
 
-/* .char-aura-container:hover .current-aura {
-  display: none;
-} */
 
 .char-aura-container:hover + .aura-selecter {
   display: flex;
@@ -277,4 +263,4 @@ body {
 .aura-selecter:hover {
   display: flex;
   position: absolute;
-}
+} */

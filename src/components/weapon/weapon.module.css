@@ -58,7 +58,18 @@
 
 .refinement {
   background-color: white;
-  box-shadow: 0 0 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
   padding: 0.5em;
   border-radius: 5px;
+}
+
+.selected-refinement {
+  box-shadow: 0 0 5px black;
+}
+
+.passives {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  justify-content: space-between;
 }

@@ -1,47 +1,47 @@
 export type character = {
-  level: number;
-  baseAtk: number;
-  baseHp: number;
-  hp: number;
-  atk: number;
-  em: number;
-  baseDef: number;
-  def: number;
-  cRate: number;
-  cDamage: number;
-  dmgBonus: number;
-  skillMultiplier: number;
-  atkPercent: number;
-  defPercent: number;
-  hpPercent: number;
-  flatAtkBonus: number;
-  flatEmBonus: number;
-  aura: string;
-  flatDmgBonus: number;
-  constellation: constellation;
+  level: { label: string; value: number };
+  baseAtk: { label: string; value: number };
+  baseHp: { label: string; value: number };
+  hp: { label: string; value: number };
+  atk: { label: string; value: number };
+  em: { label: string; value: number };
+  baseDef: { label: string; value: number };
+  def: { label: string; value: number };
+  cRate: { label: string; value: number };
+  cDamage: { label: string; value: number };
+  dmgBonus: { label: string; value: number };
+  skillMultiplier: { label: string; value: number };
+  atkPercent: { label: string; value: number };
+  defPercent: { label: string; value: number };
+  hpPercent: { label: string; value: number };
+  flatAtkBonus: { label: string; value: number };
+  flatEmBonus: { label: string; value: number };
+  aura: { label: string; value: string };
+  flatDmgBonus: { label: string; value: number };
+  constellation: { label: string; value: constellation };
 };
 
 export const defaultCharacterValues: character = {
-  level: 90,
-  baseAtk: 0,
-  baseHp: 0,
-  hp: 0,
-  atk: 0,
-  em: 0,
-  baseDef: 0,
-  def: 0,
-  cRate: 0,
-  cDamage: 0,
-  dmgBonus: 0,
-  skillMultiplier: 0,
-  atkPercent: 0,
-  defPercent: 0,
-  hpPercent: 0,
-  flatAtkBonus: 0,
-  flatEmBonus: 0,
-  aura: "none",
-  flatDmgBonus: 0,
-  constellation: 0,
+  level: { label: "Lvl", value: 90 },
+  baseAtk: { label: "Base Atk", value: 0 },
+  baseHp: { label: "Base Hp", value: 0 },
+  hp: { label: "Base Atk", value: 0 },
+  atk: { label: "Atk", value: 0 },
+  em: { label: "EM", value: 0 },
+  baseDef: { label: "Base Def", value: 0 },
+  def: { label: "Def", value: 0 },
+  cRate: { label: "Crit Rate", value: 0 },
+  cDamage: { label: "Crit Damage", value: 0 },
+  dmgBonus: { label: "Damage Bonus", value: 0 },
+  skillMultiplier: { label: "Skill Multiplier", value: 0 },
+  atkPercent: { label: "Atk%", value: 0 },
+  defPercent: { label: "Def%", value: 0 },
+  hpPercent: { label: "Hp%", value: 0 },
+  flatAtkBonus: { label: "Flat Atk Bonus", value: 0 },
+  flatEmBonus: { label: "Flat EM Bonus", value: 0 },
+  aura: { label: "Aura", value: "none" },
+  flatDmgBonus: { label: "Flat Damage Bonus", value: 0 },
+  constellation: { label: "Constellation", value: 0 },
 };
 
 export type stat =
@@ -59,6 +59,7 @@ export type stat =
 export type buff = {
   status: boolean;
   stat: stat;
+  label: string;
   value: number;
 };
 

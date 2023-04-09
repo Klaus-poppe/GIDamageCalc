@@ -1,14 +1,19 @@
 import { ChangeEvent } from "react";
 import widsith from "../../assets/weapons/Weapon_The_Widsith.webp";
-import { weapon } from "../../models/weapons";
+import { refinement, weapon } from "../../models/weapons";
 import styles from "./weapon.module.css";
 
-const Weapon = ({ weapon, updateWeaponStats }: weaponProps) => {
+const Weapon = ({
+  weapon,
+  updateWeaponStats,
+  updateWeaponPassive,
+  updateWeaponRefinement,
+}: weaponProps) => {
   return (
     <div className={styles["weapon-container"]}>
       <div className={styles["weapon-main-container"]}>
         <div className="char-level-container">
-          <div className="char-level">{`Lvl.${weapon.level}`}</div>
+          <div className="char-level">{`${weapon.level.label}.${weapon.level.value}`}</div>
           <div className="char-level-input">
             <input
               className="char-stat-input"
@@ -16,27 +21,26 @@ const Weapon = ({ weapon, updateWeaponStats }: weaponProps) => {
               type="number"
               min="0"
               max="90"
-              value={weapon.level}
+              value={weapon.level.value}
               onChange={updateWeaponStats("level")}
             />
           </div>
         </div>
         <div className="char-level-container">
-          <div className="char-level">{`Base Atk ${weapon.mainStat}`}</div>
+          <div className="char-level">{`${weapon.mainStat.label} ${weapon.mainStat.value}`}</div>
           <div className="char-level-input">
             <input
               className="char-stat-input"
               id="weaponMainStat"
               type="number"
               min="0"
-              max="90"
-              value={weapon.mainStat}
+              value={weapon.mainStat.value}
               onChange={updateWeaponStats("mainStat")}
             />
           </div>
         </div>
         <div className="char-level-container">
-          <div className="char-level">{`${weapon.substat.stat} ${weapon.substat.value}`}</div>
+          <div className="char-level">{`${weapon.substat.label} ${weapon.substat.value}`}</div>
           <div className="char-level-input">
             <input
               className="char-stat-input"
@@ -50,20 +54,26 @@ const Weapon = ({ weapon, updateWeaponStats }: weaponProps) => {
           </div>
         </div>
         <div className={styles["weapon-passive-container"]}>
-          <div className="char-level">Refinement</div>
+          <div className="char-level">{weapon.refinement.label}</div>
           <div className={styles["refinement-container"]}>
-            <div className={styles["refinement"]}>1</div>
-            <div className={styles["refinement"]}>2</div>
-            <div className={styles["refinement"]}>3</div>
-            <div className={styles["refinement"]}>4</div>
-            <div className={styles["refinement"]}>5</div>
+            {[1, 2, 3, 4, 5].map((refinement) => (
+              <div
+                className={`${styles["refinement"]} ${
+                  weapon.refinement.value === refinement
+                    ? styles["selected-refinement"]
+                    : ""
+                }`}
+                onClick={updateWeaponRefinement(refinement as refinement)}
+              >
+                {refinement}
+              </div>
+            ))}
           </div>
           <div className="char-level">Passive</div>
           <div className={styles["passives"]}>
             {weapon.passive.map((passive, index) => (
               <div key={index} className={styles["weapon-stat-container"]}>
-                <div className="char-level">{passive.stat}</div>
-
+                <div className="char-level">{passive.label}</div>
                 <input
                   className="char-stat-input"
                   id="weaponSubStatValue"
@@ -71,7 +81,7 @@ const Weapon = ({ weapon, updateWeaponStats }: weaponProps) => {
                   min="0"
                   max="90"
                   value={passive.value}
-                  onChange={updateWeaponStats("passive")}
+                  onChange={updateWeaponPassive(index)}
                 />
               </div>
             ))}
@@ -170,6 +180,10 @@ interface weaponProps {
   updateWeaponStats: (
     stat: string
   ) => (e: ChangeEvent<HTMLInputElement>) => void;
+  updateWeaponPassive: (
+    passiveIndex: number
+  ) => (e: ChangeEvent<HTMLInputElement>) => void;
+  updateWeaponRefinement: (refinement: refinement) => () => void;
 }
 
 export default Weapon;

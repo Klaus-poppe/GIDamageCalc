@@ -6,14 +6,15 @@ import electroAura from "../../assets/misc/Element_Electro.svg";
 import pyroAura from "../../assets/misc/Element_Pyro.svg";
 import hydroAura from "../../assets/misc/Element_Hydro.svg";
 import { IoClose } from "react-icons/io5";
+import styles from "./auraSelector.module.css";
 
 const AuraSelector = ({ aura, setAura }: auraSelector) => {
   return (
     <>
-      <div className="char-aura-container">
+      <div className={styles["char-aura-container"]}>
         {aura === "none" ? (
           <div
-            className="char-aura current-aura"
+            className={styles["char-aura current-aura"]}
             style={{
               padding: "4px",
               height: "40px",
@@ -21,42 +22,59 @@ const AuraSelector = ({ aura, setAura }: auraSelector) => {
             }}
           ></div>
         ) : (
-          <img className="char-aura current-aura" src={aura}></img>
+          <img
+            className={`${styles["char-aura"]} ${styles["current-aura"]}`}
+            src={aura}
+          ></img>
         )}
       </div>
-      <div className="aura-selecter">
+      <div className={styles["aura-selecter"]}>
         <img
-          className={`char-aura ${aura === anemoAura && "selected-aura"}`}
+          className={`${styles["char-aura"]} ${
+            aura === anemoAura && styles["selected-aura"]
+          }`}
           onClick={setAura(anemoAura)}
           src={anemoAura}
         ></img>
         <img
-          className={`char-aura ${aura === geoAura && "selected-aura"}`}
+          className={`${styles["char-aura"]} ${
+            aura === geoAura && styles["selected-aura"]
+          }`}
           onClick={setAura(geoAura)}
           src={geoAura}
         ></img>
         <img
-          className={`char-aura ${aura === dendroAura && "selected-aura"}`}
+          className={`${styles["char-aura"]} ${
+            aura === dendroAura && styles["selected-aura"]
+          }`}
           onClick={setAura(dendroAura)}
           src={dendroAura}
         ></img>
         <img
-          className={`char-aura ${aura === cryoAura && "selected-aura"}`}
+          className={`${styles["char-aura"]} ${
+            aura === cryoAura && styles["selected-aura"]
+          }`}
           onClick={setAura(cryoAura)}
           src={cryoAura}
         ></img>
         <img
-          className={`char-aura ${aura === pyroAura && "selected-aura"}`}
+          className={`${styles["char-aura"]} ${
+            aura === pyroAura && styles["selected-aura"]
+          }`}
           onClick={setAura(pyroAura)}
           src={pyroAura}
         ></img>
         <img
-          className={`char-aura ${aura === electroAura && "selected-aura"}`}
+          className={`${styles["char-aura"]} ${
+            aura === electroAura && styles["selected-aura"]
+          }`}
           onClick={setAura(electroAura)}
           src={electroAura}
         ></img>
         <img
-          className={`char-aura ${aura === hydroAura && "selected-aura"}`}
+          className={`${styles["char-aura"]} ${
+            aura === hydroAura && styles["selected-aura"]
+          }`}
           onClick={setAura(hydroAura)}
           src={hydroAura}
         ></img>

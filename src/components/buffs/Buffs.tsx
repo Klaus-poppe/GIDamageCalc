@@ -15,7 +15,7 @@ export const Buffs = ({ character, updateCharacterStats }: buffsProps) => {
             type="number"
             min="0"
             max="100"
-            value={character.atkPercent}
+            value={character.atkPercent.value}
             onChange={updateCharacterStats("atkPercent")}
           />
         </div>
@@ -29,7 +29,7 @@ export const Buffs = ({ character, updateCharacterStats }: buffsProps) => {
             type="number"
             min="0"
             max="100"
-            value={character.flatAtkBonus}
+            value={character.flatAtkBonus.value}
             onChange={updateCharacterStats("flatAtkBonus")}
           />
         </div>
@@ -43,7 +43,7 @@ export const Buffs = ({ character, updateCharacterStats }: buffsProps) => {
             type="number"
             min="0"
             max="100"
-            value={character.flatEmBonus}
+            value={character.flatEmBonus.value}
             onChange={updateCharacterStats("flatEmBonus")}
           />
         </div>
@@ -57,7 +57,7 @@ export const Buffs = ({ character, updateCharacterStats }: buffsProps) => {
             type="number"
             min="0"
             max="100"
-            value={character.flatDmgBonus}
+            value={character.flatDmgBonus.value}
             onChange={updateCharacterStats("flatDmgBonus")}
           />
         </div>

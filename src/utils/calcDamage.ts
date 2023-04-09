@@ -10,24 +10,26 @@ export const calcDamage = (
 ) => {
   // const baseDmg = skill * atk/def/hp
 
-  const charLevel = char.level;
-  const skill = char.skillMultiplier / 100;
+  const charLevel = char.level.value;
+  const skill = char.skillMultiplier.value / 100;
 
   // use Math.round to potentially increase accuracy
   const atk =
-    char.atk + (char.baseAtk * char.atkPercent) / 100 + char.flatAtkBonus;
+    char.atk.value +
+    (char.baseAtk.value * char.atkPercent.value) / 100 +
+    char.flatAtkBonus.value;
 
   // const flatDmgBonus = char.flatDmgBonus;
 
-  const em = char.em + char.flatEmBonus;
-  const eDmgBonus = char.dmgBonus / 100;
-  const cRate = char.cRate;
-  const cDamage = char.cDamage / 100;
+  const em = char.em.value + char.flatEmBonus.value;
+  const eDmgBonus = char.dmgBonus.value / 100;
+  const cRate = char.cRate.value;
+  const cDamage = char.cDamage.value / 100;
   const sesshouSakuraBonus = (em * 0.15) / 100;
 
-  const defReduction = enemy.defReduction;
-  const defIgnore = enemy.defIgnore;
-  const enemyLevel = enemy.level;
+  const defReduction = enemy.defReduction.value;
+  const defIgnore = enemy.defIgnore.value;
+  const enemyLevel = enemy.level.value;
 
   const baseDmg = skill * atk;
   const dmgBonus = eDmgBonus + sesshouSakuraBonus;
@@ -37,8 +39,8 @@ export const calcDamage = (
     (charLevel + 100) / (k * (enemyLevel + 100) + (charLevel + 100));
 
   const resMultiplierEnemy = calcResMultiplier(
-    enemy.resistance,
-    enemy.resShred
+    enemy.resistance.value,
+    enemy.resShred.value
   );
 
   const dmg =
@@ -54,8 +56,9 @@ export const calcDamage = (
 
   // const critDamage = Dmg * (1 + critDamage)
 
-  const aggravateBaseDmg = 1.15 * getLevelMultiplier(enemy.level, "character");
-  const reactionMultiplier = getReactionMultiplier(char.em, 0, 3);
+  const aggravateBaseDmg =
+    1.15 * getLevelMultiplier(enemy.level.value, "character");
+  const reactionMultiplier = getReactionMultiplier(char.em.value, 0, 3);
 
   const flatDmgBonus = aggravateBaseDmg * reactionMultiplier;
 

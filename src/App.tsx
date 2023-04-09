@@ -17,7 +17,12 @@ function App() {
   const { character, updateCharacterStats, setCharAura, setCharCon } =
     useCharacter();
   const { enemy, updateEnemyStats, setEnemyAura } = useEnemy();
-  const { weapon, updateWeaponStats } = useWeapon();
+  const {
+    weapon,
+    updateWeaponStats,
+    updateWeaponRefinement,
+    updateWeaponPassive,
+  } = useWeapon();
 
   return (
     <div className="app">
@@ -33,7 +38,12 @@ function App() {
             updateCharacterStats={updateCharacterStats}
           /> */}
           <Constellations setCharCon={setCharCon} />
-          <Weapon weapon={weapon} updateWeaponStats={updateWeaponStats} />
+          <Weapon
+            weapon={weapon}
+            updateWeaponStats={updateWeaponStats}
+            updateWeaponRefinement={updateWeaponRefinement}
+            updateWeaponPassive={updateWeaponPassive}
+          />
         </div>
 
         <div className="enemy-info char-info ">

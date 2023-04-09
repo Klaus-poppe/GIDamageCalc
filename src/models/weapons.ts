@@ -1,32 +1,43 @@
 import { buff, stat } from "./character";
 
 export type weapon = {
-  level: number;
-  refinement: 1 | 2 | 3 | 4 | 5;
-  mainStat: number;
+  level: { label: string; value: number };
+  refinement: { label: string; value: refinement };
+  mainStat: { label: string; value: number };
   substat: {
     stat: stat;
+    label: string;
     value: number;
   };
   passive: buff[];
 };
 
 export const defaultWeaponValues: weapon = {
-  level: 0,
-  refinement: 1,
-  mainStat: 100,
+  level: { label: "Lvl", value: 20 },
+  refinement: { label: "Refinement", value: 1 },
+  mainStat: { label: "Atk", value: 100 },
   substat: {
     stat: "atkPercent",
+    label: "Atk %",
     value: 0,
   },
   passive: [
     {
       status: true,
       stat: "em",
+      label: "EM",
+      value: 0,
+    },
+    {
+      status: true,
+      stat: "atkPercent",
+      label: "Atk %",
       value: 0,
     },
   ],
 };
+
+export type refinement = 1 | 2 | 3 | 4 | 5;
 
 // const weapons = {
 //   widsith: {

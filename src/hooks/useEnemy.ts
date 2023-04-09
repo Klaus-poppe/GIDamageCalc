@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useState } from "react";
-import { defaultEnemyValues } from "../models/enemy";
+import { defaultEnemyValues, enemy } from "../models/enemy";
 
 const useEnemy = () => {
   const [enemy, setEnemy] = useState(defaultEnemyValues);
@@ -9,7 +9,10 @@ const useEnemy = () => {
       if (e.target.value === "") return;
       setEnemy((prev) => ({
         ...prev,
-        [stat]: parseFloat(e.target.value),
+        [stat]: {
+          ...prev[stat as keyof enemy],
+          value: parseFloat(e.target.value),
+        },
       }));
     };
   };
@@ -18,7 +21,10 @@ const useEnemy = () => {
     return () => {
       setEnemy((prev) => ({
         ...prev,
-        aura,
+        aura: {
+          ...prev.aura,
+          value: aura,
+        },
       }));
     };
   };

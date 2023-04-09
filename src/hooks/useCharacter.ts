@@ -1,5 +1,9 @@
 import { ChangeEvent, useState } from "react";
-import { constellation, defaultCharacterValues } from "../models/character";
+import {
+  character,
+  constellation,
+  defaultCharacterValues,
+} from "../models/character";
 
 const useCharacter = () => {
   const [character, setCharacter] = useState(defaultCharacterValues);
@@ -9,7 +13,10 @@ const useCharacter = () => {
       if (e.target.value === "") return;
       setCharacter((prev) => ({
         ...prev,
-        [stat]: parseFloat(e.target.value),
+        [stat]: {
+          ...prev[stat as keyof character],
+          value: parseFloat(e.target.value),
+        },
       }));
     };
   };
@@ -18,7 +25,10 @@ const useCharacter = () => {
     return () => {
       setCharacter((prev) => ({
         ...prev,
-        aura,
+        aura: {
+          ...prev.aura,
+          value: aura,
+        },
       }));
     };
   };
@@ -27,7 +37,10 @@ const useCharacter = () => {
     return () => {
       setCharacter((prev) => ({
         ...prev,
-        constellation: con,
+        constellation: {
+          ...prev.constellation,
+          value: con,
+        },
       }));
     };
   };
