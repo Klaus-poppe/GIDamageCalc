@@ -2,6 +2,7 @@ import hilichurl from "../../assets/enemies/Enemy_Hilichurl.webp";
 import { ChangeEvent } from "react";
 import { enemy } from "../../models/enemy";
 import AuraSelector from "../auraSelector/AuraSelector";
+import styles from "./enemy.module.css";
 
 const enemyStats = ["resistance", "defReduction", "defIgnore", "resShred"];
 
@@ -12,14 +13,14 @@ export const Enemy = ({
 }: enemyProps) => {
   return (
     <>
-      <div className="char-stats-container">
+      <div className="stats-container">
         {enemyStats.map((stat: string) => (
-          <div className="char-stat-container">
-            <label className="char-stat-input-label" htmlFor={stat}>
+          <div className="stat-container">
+            <label className="stat-input-label" htmlFor={stat}>
               {enemy[stat as keyof enemy].label}
             </label>
             <input
-              className="char-stat-input"
+              className="stat-input"
               id={stat}
               type="number"
               min="0"
@@ -31,13 +32,13 @@ export const Enemy = ({
         ))}
       </div>
 
-      <div className="enemy-preview-container">
-        <div className="char-state-container">
-          <div className="char-level-container">
-            <div className="char-level">{`${enemy.level.label}.${enemy.level.value}`}</div>
-            <div className="char-level-input">
+      <div className={styles["enemy-preview-container"]}>
+        <div className="state-container ">
+          <div className="level-container">
+            <div className="level">{`${enemy.level.label}.${enemy.level.value}`}</div>
+            <div className="level-input">
               <input
-                className="char-stat-input"
+                className="stat-input"
                 id="enemyLevel"
                 type="number"
                 min="0"
@@ -49,11 +50,10 @@ export const Enemy = ({
           </div>
           <AuraSelector aura={enemy.aura.value} setAura={setEnemyAura} />
         </div>
-        <div className="enemy-image-container">
-          <img className="enemy-preview" src={hilichurl} />
+        <div className={styles["enemy-image-container"]}>
+          <img className={styles["enemy-preview"]} src={hilichurl} />
         </div>
       </div>
-      {/* <pre>{JSON.stringify(enemy, null, 2)}</pre> */}
     </>
   );
 };

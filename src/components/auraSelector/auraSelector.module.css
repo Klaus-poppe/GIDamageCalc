@@ -38,18 +38,6 @@
   justify-content: center;
 }
 
-/* .enemy-preview-container:hover .current-aura {
-    display: none;
-  } */
-
-/* .enemy-preview-container:hover .aura-selecter {
-    display: flex;
-  } */
-
-/* .char-aura-container:hover .current-aura {
-    display: none;
-  } */
-
 .char-aura-container:hover + .aura-selecter {
   display: flex;
   position: absolute;

@@ -1,16 +1,17 @@
 import { ChangeEvent } from "react";
 import { character } from "../../models/character";
+import styles from "./buffs.module.css";
 
 export const Buffs = ({ character, updateCharacterStats }: buffsProps) => {
   return (
-    <div className="buffs-container">
-      <div className="buffs">
-        <div className="buff">
-          <label htmlFor="atkPercent" className="char-stat-input-label">
+    <div className={styles["buffs-container"]}>
+      <div className={styles["buffs"]}>
+        <div className={styles["buff"]}>
+          <label htmlFor="atkPercent" className="stat-input-label">
             Atk percent
           </label>
           <input
-            className="char-stat-input"
+            className="stat-input"
             id="atkPercent"
             type="number"
             min="0"
@@ -19,12 +20,12 @@ export const Buffs = ({ character, updateCharacterStats }: buffsProps) => {
             onChange={updateCharacterStats("atkPercent")}
           />
         </div>
-        <div className="buff">
-          <label htmlFor="flatAtkBonus" className="char-stat-input-label">
+        <div className={styles["buff"]}>
+          <label htmlFor="flatAtkBonus" className="stat-input-label">
             Flat Atk Bonus
           </label>
           <input
-            className="char-stat-input"
+            className="stat-input"
             id="flatAtkBonus"
             type="number"
             min="0"
@@ -33,12 +34,12 @@ export const Buffs = ({ character, updateCharacterStats }: buffsProps) => {
             onChange={updateCharacterStats("flatAtkBonus")}
           />
         </div>
-        <div className="buff">
-          <label htmlFor="flatEmBonus" className="char-stat-input-label">
+        <div className={styles["buff"]}>
+          <label htmlFor="flatEmBonus" className="stat-input-label">
             EM bonus
           </label>
           <input
-            className="char-stat-input"
+            className="stat-input"
             id="flatEmBonus"
             type="number"
             min="0"
@@ -47,12 +48,12 @@ export const Buffs = ({ character, updateCharacterStats }: buffsProps) => {
             onChange={updateCharacterStats("flatEmBonus")}
           />
         </div>
-        <div className="buff">
-          <label htmlFor="flatEmBonus" className="char-stat-input-label">
+        <div className={styles["buff"]}>
+          <label htmlFor="flatEmBonus" className="stat-input-label">
             Flat Dmg Bonus
           </label>
           <input
-            className="char-stat-input"
+            className="stat-input"
             id="atkDmgBonus"
             type="number"
             min="0"

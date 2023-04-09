@@ -1,0 +1,19 @@
+.enemy-info {
+  grid-template-rows: 1fr auto;
+  /* place-content: flex-end; */
+}
+
+.enemy-image-container {
+  height: 280px;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-self: center;
+  align-self: end;
+}
+
+.enemy-preview {
+  height: 100%;
+  width: auto;
+}

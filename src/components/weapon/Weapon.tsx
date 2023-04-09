@@ -12,11 +12,11 @@ const Weapon = ({
   return (
     <div className={styles["weapon-container"]}>
       <div className={styles["weapon-main-container"]}>
-        <div className="char-level-container">
-          <div className="char-level">{`${weapon.level.label}.${weapon.level.value}`}</div>
-          <div className="char-level-input">
+        <div className="level-container">
+          <div className="level">{`${weapon.level.label}.${weapon.level.value}`}</div>
+          <div className="level-input">
             <input
-              className="char-stat-input"
+              className="stat-input"
               id="weaponLevel"
               type="number"
               min="0"
@@ -26,11 +26,11 @@ const Weapon = ({
             />
           </div>
         </div>
-        <div className="char-level-container">
-          <div className="char-level">{`${weapon.mainStat.label} ${weapon.mainStat.value}`}</div>
-          <div className="char-level-input">
+        <div className="level-container">
+          <div className="level">{`${weapon.mainStat.label} ${weapon.mainStat.value}`}</div>
+          <div className="level-input">
             <input
-              className="char-stat-input"
+              className="stat-input"
               id="weaponMainStat"
               type="number"
               min="0"
@@ -39,11 +39,11 @@ const Weapon = ({
             />
           </div>
         </div>
-        <div className="char-level-container">
-          <div className="char-level">{`${weapon.substat.label} ${weapon.substat.value}`}</div>
-          <div className="char-level-input">
+        <div className="level-container">
+          <div className="level">{`${weapon.substat.label} ${weapon.substat.value}`}</div>
+          <div className="level-input">
             <input
-              className="char-stat-input"
+              className="stat-input"
               id="weaponSubStatValue"
               type="number"
               min="0"
@@ -54,7 +54,7 @@ const Weapon = ({
           </div>
         </div>
         <div className={styles["weapon-passive-container"]}>
-          <div className="char-level">{weapon.refinement.label}</div>
+          <div className="level">{weapon.refinement.label}</div>
           <div className={styles["refinement-container"]}>
             {[1, 2, 3, 4, 5].map((refinement) => (
               <div
@@ -69,13 +69,13 @@ const Weapon = ({
               </div>
             ))}
           </div>
-          <div className="char-level">Passive</div>
+          <div className="level">Passive</div>
           <div className={styles["passives"]}>
             {weapon.passive.map((passive, index) => (
               <div key={index} className={styles["weapon-stat-container"]}>
-                <div className="char-level">{passive.label}</div>
+                <div className="level">{passive.label}</div>
                 <input
-                  className="char-stat-input"
+                  className="stat-input"
                   id="weaponSubStatValue"
                   type="number"
                   min="0"
@@ -95,11 +95,11 @@ const Weapon = ({
       {/* 
       <div className={styles["weapon-stats-container"]}>
         <div className={styles["weapon-stat-container"]}>
-          <label className="char-stat-input-label" htmlFor="weaponLevel">
+          <label className="stat-input-label" htmlFor="weaponLevel">
             Level
           </label>
           <input
-            className="char-stat-input"
+            className="stat-input"
             id="weaponLevel"
             type="number"
             min="0"
@@ -109,11 +109,11 @@ const Weapon = ({
           />
         </div>
         <div className={styles["weapon-stat-container"]}>
-          <label className="char-stat-input-label" htmlFor="weaponMainStat">
+          <label className="stat-input-label" htmlFor="weaponMainStat">
             Main Stat
           </label>
           <input
-            className="char-stat-input"
+            className="stat-input"
             id="weaponMainStat"
             type="number"
             min="0"
@@ -123,11 +123,11 @@ const Weapon = ({
           />
         </div>
         <div className={styles["weapon-stat-container"]}>
-          <label className="char-stat-input-label" htmlFor="weaponSubStat">
+          <label className="stat-input-label" htmlFor="weaponSubStat">
             Sub Stat
           </label>
           <input
-            className="char-stat-input"
+            className="stat-input"
             id="weaponSubStat"
             type="string"
             min="0"
@@ -136,7 +136,7 @@ const Weapon = ({
             onChange={updateWeaponStats("substat")}
           />
           <input
-            className="char-stat-input"
+            className="stat-input"
             id="weaponSubStatValue"
             type="number"
             min="0"
@@ -147,11 +147,11 @@ const Weapon = ({
         </div>
         {weapon.passive.map((passive, index) => (
           <div key={index} className={styles["weapon-stat-container"]}>
-            <label className="char-stat-input-label" htmlFor="weaponSubStat">
+            <label className="stat-input-label" htmlFor="weaponSubStat">
               {`Passive ${index + 1}`}
             </label>
             <input
-              className="char-stat-input"
+              className="stat-input"
               id="weaponSubStat"
               type="string"
               min="0"
@@ -160,7 +160,7 @@ const Weapon = ({
               onChange={updateWeaponStats("passive")}
             />
             <input
-              className="char-stat-input"
+              className="stat-input"
               id="weaponSubStatValue"
               type="number"
               min="0"

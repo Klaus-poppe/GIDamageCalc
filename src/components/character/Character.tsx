@@ -4,6 +4,8 @@ import { character, defaultCharacterValues } from "../../models/character";
 import YaeMiko from "../../assets/characters/yaeMiko_full.png";
 import AuraSelector from "../auraSelector/AuraSelector";
 
+import styles from "./character.module.css";
+
 const charStats = [
   "baseAtk",
   "atk",
@@ -23,14 +25,14 @@ export const Character = ({
 
   return (
     <>
-      <div className="char-preview-container">
+      <div className={styles["char-preview-container"]}>
         {/* <div className="char-name">Yae Miko</div> */}
-        <div className="char-state-container">
-          <div className="char-level-container">
-            <div className="char-level">{`${character.level.label}.${character.level.value}`}</div>
-            <div className="char-level-input">
+        <div className="state-container">
+          <div className="level-container">
+            <div className="level">{`${character.level.label}.${character.level.value}`}</div>
+            <div className="level-input">
               <input
-                className="char-stat-input"
+                className="stat-input"
                 id="charLevel"
                 type="number"
                 min="0"
@@ -43,19 +45,19 @@ export const Character = ({
 
           <AuraSelector aura={character.aura.value} setAura={setCharAura} />
         </div>
-        <div className="char-image-container">
-          <img className="char-preview" src={YaeMiko}></img>
+        <div className={styles["char-image-container"]}>
+          <img className={styles["char-preview"]} src={YaeMiko}></img>
         </div>
       </div>
 
-      <div className="char-stats-container">
+      <div className="stats-container">
         {charStats.map((stat) => (
-          <div className="char-stat-container">
-            <label className="char-stat-input-label" htmlFor={stat}>
+          <div className="stat-container">
+            <label className="stat-input-label" htmlFor={stat}>
               {character[stat as keyof character].label}
             </label>
             <input
-              className="char-stat-input"
+              className="stat-input"
               id={stat}
               type="number"
               min="0"

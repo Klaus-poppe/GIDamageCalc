@@ -24,13 +24,6 @@ body {
   background: #fafafa;
 }
 
-.grid-container {
-  display: grid;
-  gap: 2em;
-  padding: 3em;
-  grid-template-rows: auto 1fr;
-}
-
 .char-info {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -42,56 +35,14 @@ body {
 
 .enemy-info {
   grid-template-rows: 1fr auto;
-  /* place-content: flex-end; */
 }
 
-.char-name {
-  font-size: 2.2rem;
-}
-
-.char-image-container {
-  height: auto;
-  width: 350px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.enemy-image-container {
-  height: 280px;
-  width: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.enemy-info .stats-container {
   justify-self: center;
   align-self: end;
 }
 
-.char-preview {
-  height: auto;
-  width: 100%;
-}
-
-.char-preview-container {
-  height: fit-content;
-}
-
-.enemy-preview {
-  height: 100%;
-  width: auto;
-}
-
-.dmg-results {
-  text-align: center;
-  white-space: pre;
-}
-
-.enemy-info .char-stats-container {
-  justify-self: center;
-  align-self: end;
-}
-
-.char-stats-container {
+.stats-container {
   display: flex;
   flex-direction: column;
   gap: 1em;
@@ -104,7 +55,7 @@ body {
   background-color: white;
 }
 
-.char-stat-input {
+.stat-input {
   width: 5em;
   height: 2em;
   text-align: center;
@@ -114,11 +65,11 @@ body {
   background-color: white;
 }
 
-.char-stat-input-label {
+.stat-input-label {
   font-size: 1.4rem;
 }
 
-.char-stat-container {
+.stat-container {
   font-size: 1.5rem;
   display: flex;
   align-items: center;
@@ -126,141 +77,32 @@ body {
   gap: 1em;
 }
 
-.results-contianer {
-  padding: 0 3em;
-  width: 100%;
-  /* text-align: center; */
-  white-space: pre;
-  grid-column: span 2;
-  line-height: 2rem;
-  font-size: 1.3rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1em 1em;
-  gap: 1em;
-  width: 20em;
-  justify-self: center;
-  align-self: center;
-  box-shadow: inset 0px 0px 4em 1em var(--theme-color),
-    0 0 0.2em 0.2em rgba(0, 0, 0, 0.6);
-  background-color: white;
-  border-radius: 10px;
-  border: 2px solid white;
-  padding: 2em;
-  height: fit-content;
-  width: fit-content;
-}
-
-.result {
-  width: 7em;
-  height: 2em;
-  line-height: 1.5rem;
-  font-size: 1.3rem;
-}
-
-.buffs-container {
-  border: 1px black solid;
-  background-color: white;
-  box-shadow: inset 0px 0px 4em 1em var(--theme-color),
-    0 0 0.2em 0.2em rgba(0, 0, 0, 0.6);
-  grid-column: span 2;
-  border-radius: 10px;
-  padding: 2em;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1em;
-  grid-template-rows: auto;
-}
-
-.buffs {
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-  height: fit-content;
-}
-
-.buff {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 1.5;
-  gap: 1em;
-}
-/* 
-.char-aura {
-  height: 40px;
-  width: auto;
-  cursor: pointer;
-}
-
-.current-aura {
-  padding: 3px;
-}
-
-.selected-aura {
-  border-radius: 50%;
-  background: rgb(255, 255, 255);
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
-
-}
-
-.aura-selecter {
-  background-color: white;
-  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5);
-  border-radius: 20px;
-  display: flex;
-  gap: 0.5em;
-  justify-content: center;
-  align-items: center;
-  padding: 4px;
-  display: none;
-} */
-
-.char-state-container {
+.state-container {
   display: flex;
   /* justify-content: space-between; */
   align-items: center;
 }
 
-.char-level-container {
+.level-container {
   flex-basis: 33.33%;
   display: flex;
   align-items: center;
   font-size: 1.2rem;
 }
 
-.char-level {
+.level {
   display: flex;
   align-items: center;
 }
 
-.char-level-input {
+.level-input {
   display: none;
 }
 
-.char-level-container:hover .char-level {
+.level-container:hover .level {
   display: none;
 }
 
-.char-level-container:hover .char-level-input {
+.level-container:hover .level-input {
   display: block;
 }
-
-/* 
-
-.char-aura-container {
-  flex-basis: 33.33%;
-  display: flex;
-  justify-content: center;
-}
-
-
-.char-aura-container:hover + .aura-selecter {
-  display: flex;
-  position: absolute;
-}
-
-.aura-selecter:hover {
-  display: flex;
-  position: absolute;
-} */

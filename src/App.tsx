@@ -46,7 +46,7 @@ function App() {
           />
         </div>
 
-        <div className="enemy-info char-info ">
+        <div className="char-info enemy-info ">
           <Results character={character} enemy={enemy} />
           <Enemy
             updateEnemyStats={updateEnemyStats}

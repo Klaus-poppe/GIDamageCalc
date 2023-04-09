@@ -1,0 +1,28 @@
+.buffs-container {
+  border: 1px black solid;
+  background-color: white;
+  box-shadow: inset 0px 0px 4em 1em var(--theme-color),
+    0 0 0.2em 0.2em rgba(0, 0, 0, 0.6);
+  grid-column: span 2;
+  border-radius: 10px;
+  padding: 2em;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1em;
+  grid-template-rows: auto;
+}
+
+.buffs {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  height: fit-content;
+}
+
+.buff {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.5;
+  gap: 1em;
+}

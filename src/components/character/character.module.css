@@ -1,3 +1,16 @@
 .char-preview-container {
   height: fit-content;
 }
+
+.char-image-container {
+  height: auto;
+  width: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.char-preview {
+  height: auto;
+  width: 100%;
+}
